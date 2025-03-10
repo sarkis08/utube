@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { ClerkProvider } from "@clerk/nextjs";
+
 import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
-  weight: ["200", "900","300"],
+  weight: ["200", "900", "300"],
   display: "swap",
-})
-
+});
 
 export const metadata: Metadata = {
   title: "Create Utube App",
@@ -20,12 +21,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning={true}>
-      <body
-        className={inter.className}
-      >
-        {children}
-      </body>
-    </html>
+    <ClerkProvider afterSignOutUrl={"/"}>
+      <html lang="en" suppressHydrationWarning={true}>
+        <body className={inter.className}>{children}</body>
+      </html>
+    </ClerkProvider>
   );
 }
