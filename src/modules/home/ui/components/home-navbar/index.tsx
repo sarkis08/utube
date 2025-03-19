@@ -17,7 +17,7 @@ export const HomeNavBar = ({}: Props) => {
                     <Link href={"/"}>
                         <div className="p-4 flex items-center gap-1">
                         <Image src={"/logo.svg"} height={32} width={32} alt="Logo" />
-                        <p className="text-xl font-semibold tracking-tight">Utube</p>
+                        <p className="text-xl font-semibold tracking-tight">UTube</p>
                         </div>
                     </Link>
                 </div>
