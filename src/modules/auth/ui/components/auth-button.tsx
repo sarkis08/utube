@@ -3,15 +3,25 @@
 import { UserButton, SignInButton, SignedIn, SignedOut } from "@clerk/nextjs";
 
 import { Button } from "@/components/ui/button";
-import { UserCircleIcon } from "lucide-react";
+import { ClapperboardIcon, UserCircleIcon } from "lucide-react";
 
 type Props = {};
 export const AuthButton = ({}: Props) => {
   return (
     <>
       <SignedIn>
-        <UserButton />
-        {/* Add menu items */}
+        <UserButton>
+          <UserButton.MenuItems>
+            {/* TODO: Add user profile menu button */}
+            <UserButton.Link
+              label="Studio"
+              href="/studio"
+              labelIcon={<ClapperboardIcon className="h-4 w-4" />}
+            />
+            <UserButton.Action label="manageAccount"/>
+          </UserButton.MenuItems>
+        </UserButton>
+        
       </SignedIn>
       <SignedOut>
         <SignInButton>
